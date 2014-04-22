@@ -299,6 +299,11 @@ class Bs3FormHelper extends FormHelper {
 		// Render input field via parent method
 		$input = parent::_getInput($args);
 
+		// Test if it is a hidden field so, it doesn't need to add wrapping and stuff.
+		if ($args['type'] == 'hidden') {
+			return $input;
+		}
+		
 		// beforeInput html
 		$beforeInput = $this->_extractOption('beforeInput', $this->_customInputOptions);
 
